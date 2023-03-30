@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-1-thread-1","id":1},{"content":"pool-1-thread-2","id":2},{"content":"pool-1-thread-3","id":3},{"content":"pool-1-thread-4","id":4},{"content":"pool-1-thread-5","id":5}];
+var items = [{"id":1,"group":1,"content":"examples\/employees\/employee[1:4]","start":1680000538676,"end":1680000538930,"title":"examples\/employees\/employee[1:4] 16:18:58.676-16:18:58.930 get all employees"},{"id":2,"group":2,"content":"examples\/employees\/employee[2:9]","start":1680000538676,"end":1680000538946,"title":"examples\/employees\/employee[2:9] 16:18:58.676-16:18:58.946 create a employee and then get it by id"},{"id":3,"group":3,"content":"examples\/employees\/employee[3:29]","start":1680000538676,"end":1680000538932,"title":"examples\/employees\/employee[3:29] 16:18:58.676-16:18:58.932 get  employee by id"},{"id":4,"group":4,"content":"examples\/employees\/employee[4:35]","start":1680000538676,"end":1680000538932,"title":"examples\/employees\/employee[4:35] 16:18:58.676-16:18:58.932 update employee for id"},{"id":5,"group":5,"content":"examples\/employees\/employee[5:52]","start":1680000538676,"end":1680000538930,"title":"examples\/employees\/employee[5:52] 16:18:58.676-16:18:58.930 delete  employee by id","className":"failed"},{"id":6,"group":1,"content":"examples\/employees\/employee[6:59]","start":1680000538935,"end":1680000538964,"title":"examples\/employees\/employee[6:59] 16:18:58.935-16:18:58.964 get all employees"},{"id":7,"group":5,"content":"examples\/kycPAN\/kycpanupdatesave[1:10]","start":1680000538940,"end":1680000540442,"title":"examples\/kycPAN\/kycpanupdatesave[1:10] 16:18:58.940-16:19:00.442 get kyc status","className":"failed"},{"id":8,"group":4,"content":"examples\/kycdetails\/kycdetail[1:11]","start":1680000538937,"end":1680000540386,"title":"examples\/kycdetails\/kycdetail[1:11] 16:18:58.937-16:19:00.386 get kyc status"},{"id":9,"group":3,"content":"examples\/users\/users[1:7]","start":1680000538939,"end":1680000539485,"title":"examples\/users\/users[1:7] 16:18:58.939-16:18:59.485 get all users and then get the first user by id"},{"id":10,"group":2,"content":"examples\/users\/users[2:18]","start":1680000538951,"end":1680000539947,"title":"examples\/users\/users[2:18] 16:18:58.951-16:18:59.947 create a user and then get it by id"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

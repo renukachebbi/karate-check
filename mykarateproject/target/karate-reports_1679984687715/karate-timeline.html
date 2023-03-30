@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-1-thread-1","id":1},{"content":"pool-1-thread-2","id":2},{"content":"pool-1-thread-3","id":3},{"content":"pool-1-thread-4","id":4},{"content":"pool-1-thread-5","id":5}];
+var items = [{"id":1,"group":1,"content":"examples\/employees\/employee[1:4]","start":1679984575654,"end":1679984575893,"title":"examples\/employees\/employee[1:4] 11:52:55.654-11:52:55.893 get all employees"},{"id":2,"group":2,"content":"examples\/employees\/employee[2:9]","start":1679984575654,"end":1679984575930,"title":"examples\/employees\/employee[2:9] 11:52:55.654-11:52:55.930 create a employee and then get it by id"},{"id":3,"group":3,"content":"examples\/employees\/employee[3:29]","start":1679984575654,"end":1679984575894,"title":"examples\/employees\/employee[3:29] 11:52:55.654-11:52:55.894 get  employee by id"},{"id":4,"group":4,"content":"examples\/employees\/employee[4:35]","start":1679984575654,"end":1679984575895,"title":"examples\/employees\/employee[4:35] 11:52:55.654-11:52:55.895 update employee for id"},{"id":5,"group":5,"content":"examples\/employees\/employee[5:52]","start":1679984575654,"end":1679984575927,"title":"examples\/employees\/employee[5:52] 11:52:55.654-11:52:55.927 delete  employee by id"},{"id":6,"group":1,"content":"examples\/users\/users[1:7]","start":1679984575899,"end":1679984577488,"title":"examples\/users\/users[1:7] 11:52:55.899-11:52:57.488 get all users and then get the first user by id"},{"id":7,"group":3,"content":"examples\/users\/users[2:18]","start":1679984575899,"end":1679984577680,"title":"examples\/users\/users[2:18] 11:52:55.899-11:52:57.680 create a user and then get it by id"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
